@@ -5,24 +5,24 @@ Projeto para a disciplina Redes de Computadores
 Professor: Cesar Marcondes (https://github.com/cmarcond) - marcondes@dc.ufscar.br
 
 
------Descrição do projeto-----
+-----Descricao do projeto-----
 
-Este projeto (um programa CGI) tem como objetivo obter o "output" de comandos de diferentes máquinas,
-feitos através de uma interface web. Cada máquina e seus respectivos comandos são escolhidos
-separadamente através de uma página html. As opções de cada comando podem ser escritas.
-É usado o modelo Client-Server.
+Este projeto (um programa CGI) tem como objetivo obter o "output" de comandos de diferentes maquinas,
+feitos atraves de uma interface web. Cada maquina e seus respectivos comandos sao escolhidos
+separadamente atraves de uma pagina html. As opcoes de cada comando podem ser escritas.
+E usado o modelo Client-Server.
 
-Os comandos são: 'ps', 'df', 'finger' e 'uptime'.
+Os comandos sao: 'ps', 'df', 'finger' e 'uptime'.
 
------Esta aplicação está dividida entre:-----
+-----Esta aplicacao esta dividida entre:-----
 
-- backend.py: recebe as informações inseridas na página web e as envia para o daemon da máquina adequada
-- daemon.py: verifica se os comandos são válidos, executa localmente e retorna suas saídas para o backend
+- backend.py: recebe as informacoes inseridas na pagina web e as envia para o daemon da maquina adequada
+- daemon.py: verifica se os comandos sao validos, executa localmente e retorna suas saidas para o backend
 - index.py: importa webserver
 --- Web Server
-- webserver.html: contém as informações exibidas na página
-- webserver.js: script com os elementos funcionais e de coleta de dados da página
-- webserver.py: invocado pelo index.py, verifica os métodos GET & POST da página, importando o backend.py.
+- webserver.html: contem as informações exibidas na pagina
+- webserver.js: script com os elementos funcionais e de coleta de dados da pagina
+- webserver.py: invocado pelo index.py, verifica os metodos GET & POST da pagina, importando o backend.py.
 
 -----Requerimentos-----
 
