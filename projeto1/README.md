@@ -16,13 +16,13 @@ E usado o modelo Client-Server.
 
 Os comandos sao: 'ps', 'df', 'finger' e 'uptime'.
 
-## Esta aplicacao esta dividida entre:
+## Esta aplicação esta dividida entre:
 
 - backend.py: recebe as informacoes inseridas na pagina web e as envia para o daemon da maquina adequada
 - daemon.py: verifica se os comandos sao validos, executa localmente e retorna suas saidas para o backend
 - index.py: importa webserver
 --- Web Server
-- webserver.html: contem as informa��es exibidas na pagina
+- webserver.html: contem as informações exibidas na pagina
 - webserver.js: script com os elementos funcionais e de coleta de dados da pagina
 - webserver.py: invocado pelo index.py, verifica os metodos GET & POST da pagina, importando o backend.py.
 
