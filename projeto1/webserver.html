@@ -16,7 +16,24 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  
+  <style>
+    .nav-tabs {
+      margin-bottom: 15px;
+    }
+
+    .nav-tabs > li .close {
+      margin: 0 0 0 10px;
+    }
+
+    hr {
+      margin-top: 10px !important;
+      margin-bottom: 20px !important;
+    }
+
+    .top-buffer {
+      margin-top: 10px;
+    }
+  </style>
 </head>
 
 <body>
@@ -41,6 +58,56 @@
     </div>
   </nav>
 
+  <div class="container">
+    <ul id="myTabs" class="nav nav-tabs" role="tablist">
+      <li class="active"><a href="#maquina_1" count='1' role="tab">M 1</a></li>
+      <li class=""><a href="#add" role="tab" class="add-tab">+</a></li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane active" id="maquina_1">
+        <div class="row top-buffer">
+          <div class="col-lg-1">
+          </div>
+          <div class="col-lg-2">
+            <strong>
+              Comando
+            </strong>
+          </div>
+          <div class="col-lg-9">
+            <strong>
+              Argumentos
+            </strong>
+          </div>
+        </div>
+        <hr>
+        <div class="row command-row">
+          <div class="col-lg-1 text-center">
+          </div>
+          <div class="col-lg-2">
+            <select class="form-control">
+              <option>ps</option>
+              <option>df</option>
+              <option>finger</option>
+              <option>uptime</option>
+            </select>
+          </div>
+          <div class="col-lg-9">
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="row top-buffer">
+          <div class="col-lg-1 text-center">
+            <button type="button" class="btn btn-success btn-block add-command">+</button>
+          </div>
+          <div class="col-lg-2">
+          </div>
+          <div class="col-lg-9">
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="add">Nova máquina adicionada</div>
+    </div>
+  </div>
 
   <!-- /.container -->\
   <div class="container">
