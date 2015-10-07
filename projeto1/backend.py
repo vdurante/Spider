@@ -23,8 +23,8 @@ machines = []
 
 # para cada daemon desejado, coloque o IP e Porta correspondentes
 machines.append({"IP": "localhost", "port": 9000})
-#machines.append({"IP" : "localhost", "port" : 9001 })
-#machines.append({"IP" : "localhost", "port" : 9001 })
+machines.append({"IP" : "localhost", "port" : 9001 })
+machines.append({"IP" : "localhost", "port" : 9001 })
 
 # thread de cada maquina
 # para cada maquina que o usuario selecionou uma thread nova será criada
