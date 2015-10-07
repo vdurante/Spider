@@ -1,0 +1,31 @@
+Projeto para a disciplina Redes de Computadores
+
+----Servidor de Consultas Linux----
+
+Professor: Cesar Marcondes (https://github.com/cmarcond) - marcondes@dc.ufscar.br
+
+
+-----Descrição do projeto-----
+
+Este projeto (um programa CGI) tem como objetivo obter o "output" de comandos de diferentes máquinas,
+feitos através de uma interface web. Cada máquina e seus respectivos comandos são escolhidos
+separadamente através de uma página html. As opções de cada comando podem ser escritas.
+É usado o modelo Client-Server.
+
+Os comandos são: 'ps', 'df', 'finger' e 'uptime'.
+
+-----Esta aplicação está dividida entre:-----
+
+- backend.py: recebe as informações inseridas na página web e as envia para o daemon da máquina adequada
+- daemon.py: verifica se os comandos são válidos, executa localmente e retorna suas saídas para o backend
+- index.py: importa webserver
+--- Web Server
+- webserver.html: contém as informações exibidas na página
+- webserver.js: script com os elementos funcionais e de coleta de dados da página
+- webserver.py: invocado pelo index.py, verifica os métodos GET & POST da página, importando o backend.py.
+
+-----Requerimentos-----
+
+Apache HTTP Server - (https://httpd.apache.org/)
+Python 2.7 - (https://www.python.org/)
+
