@@ -129,6 +129,59 @@ def print_results(result):
 
 if method == "POST":
 
+    # fila usada para armazenar os resultados dos comandos de cada máquina (thread)
+    # utiliza-se uma Queue porque é indicada para programas multi-thread,
+    # já que ela possui métodos de sincronização já implementados,
+    # garantindo segurança na troca e acesso de informação entre threads executando em paralelo
+    queue = Queue.Queue()
+
+    # queue_lock, usado para sincronização de escrita dentro da thread
+    queue_lock = threading.Lock()
+
+    # adquirir dados POST vindos da form presente na página anterior
+    form = cgi.FieldStorage()
+    data = json.loads(form.getvalue("data"))["machines"]
+
+    # array para as K threads que forem criadas (uma por máquina)
+    threads = []
+
+    for (index, machine) in enumerate(data):
+        # para cada máquina requerida, cria uma thread e passa como argumento
+        # index + 1 - identificador linear de cada thread - correspondente à contagem de Máquinas vinda do front-end
+        # array de comandos da máquina desejada
+        # queue para ser usado dentro da thread
+        thread = machine_thread(index + 1, machine["commands"], queue)
+        thread.start()
+
+        # thread criada adicionada ao array de threads
+        threads.append(thread)
+
+    for t in threads:
+        # sincronização - aguarda todads as threads encerrarem
+        t.join()
+
+    # cria array vazio com K posições (número de máquinas)
+    # será usado para ordernar as respostas existentes na queue
+    # a queue é preenchida em ordem de término de threads
+    # a queue não está ordenada por contagem de máquina
+    results = [None] * queue.qsize()
+
+    while not queue.empty():
+        r = queue.get()
+        # machine_id é único e linear
+        results[int(r["machine_id"])-1] = r
+
+    for r in results:
+        # para cada resultado das máquinas, imprime usando função print_results
+        print_results(r)
+
+    # ALTERNATIVA
+    # printar em ordem de término das threads, para verificar funcionamento do paralelismo
+
+    '''while not queue.empty():
+        # enquanto a queue não estiver vazia
+        # extrai primeiro elemento da lista a imprime ele usando a função de print_results
+        print_results(queue.get())'''
 
 else:
     # caso método não seja POST, negar acesso
