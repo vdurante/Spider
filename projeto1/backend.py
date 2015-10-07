@@ -155,8 +155,12 @@ if method == "POST":
     # fila usada para armazenar os resultados dos comandos de cada máquina (thread)
     # utiliza-se uma Queue porque é indicada para programas multi-thread,
     # já que ela possui métodos de sincronização já implementados,
+<<<<<<< HEAD
     # garantindo segurança na troca e acesso de informação entre threads
     # executando em paralelo
+=======
+    # garantindo segurança na troca e acesso de informação entre threads executando em paralelo
+>>>>>>> ba27938b312340a91f42d9575ab69bc8e8e537b3
     queue = Queue.Queue()
 
     # queue_lock, usado para sincronização de escrita dentro da thread
@@ -193,15 +197,23 @@ if method == "POST":
     while not queue.empty():
         r = queue.get()
         # machine_id é único e linear
+<<<<<<< HEAD
         results[int(r["machine_id"]) - 1] = r
+=======
+        results[int(r["machine_id"])-1] = r
+>>>>>>> ba27938b312340a91f42d9575ab69bc8e8e537b3
 
     for r in results:
         # para cada resultado das máquinas, imprime usando função print_results
         print_results(r)
 
     # ALTERNATIVA
+<<<<<<< HEAD
     # printar em ordem de término das threads, para verificar funcionamento do
     # paralelismo
+=======
+    # printar em ordem de término das threads, para verificar funcionamento do paralelismo
+>>>>>>> ba27938b312340a91f42d9575ab69bc8e8e537b3
 
     '''while not queue.empty():
         # enquanto a queue não estiver vazia
