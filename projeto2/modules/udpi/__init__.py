@@ -354,6 +354,20 @@ class udpi:
     # metodo parse_packet
     # extrai informacoes de um pacote (header + payload)
     def parse_packet(self, packet):
+        # numero de sequenceia correspondente aos 4 primeiros bytes
+        sequence_number = struct.unpack('=I', packet[0:4])
+
+        # checksum correspondente aos 2 bytes seguintes
+        checksum = struct.unpack("=H", packet[4:6])
+
+        # tipo do pacote correspondente aos 2 bytes seguintes
+        packet_type = struct.unpack("=H", packet[6:8])
+
+        # dados correspondente ao restante
+        data = packet[8:]
+
+        # retorna os valores acima extraidos
+        return int(sequence_number[0]), int(checksum[0]), int(packet_type[0]), data
 
 
     # metodo get_settings
