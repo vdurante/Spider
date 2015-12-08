@@ -332,6 +332,23 @@ class udpi:
     # packet_type - 2 bytes
     # header (cabecalho) soma 8 bytes
     def make_pkt(self, sequence_number, checksum, packet_type, data):
+        sequence_number = struct.pack("=I", sequence_number)
+
+        checksum = struct.pack("=H", checksum)
+
+        # tipos de pacotes possiveis: ACK, NAK, DATA e EOP (end of packets)
+        # cada um tem uma sequencia de bits correspondente (43690, 65280, 3855, 15567)
+        if packet_type == 'ACK':
+            packet_type = struct.pack("=H", 43690)
+        elif packet_type == 'NAK':
+            packet_type = struct.pack("=H", 65280)
+        elif packet_type == 'DATA':
+            packet_type = struct.pack("=h", 3855)
+        elif packet_type == 'EOP':
+            packet_type = struct.pack("=h", 15567)
+
+        # retorna o pacote composto por header + payload
+        return sequence_number + checksum + packet_type + bytes(data)
 
 
     # metodo parse_packet
