@@ -1,16 +1,20 @@
 # Black Widow
 
-Projeto 2 para a disciplina Redes de Computadores
+Projeto 2 - disciplina Redes de Computadores
 
-## Transferencia Confiavel de Dados Baseada em Janela com Repeticao Seletiva Usando Python
+### Transferencia Confiavel de Dados Baseada em Janela com Repeticao Seletiva Usando Python
 
 Professor: Cesar Marcondes (https://github.com/cmarcond) - marcondes@dc.ufscar.br
 
-## Objetivo
+### Observacao
+
+Oo trabalho foi desenvolvido em conjunto, presencialmente. O envio do trabalho segmentado nao representa plenamente o desenvolvimento do mesmo. Nos, integrantes do grupo, consideramos que tivemos participacao igual no desenvolvimento do mesmo.
+
+### Objetivo
 
 O objetivo deste projeto e usar sockets UDP e a linguagem de programacao python para implementar um protocolo de transferencia de dados confiavel
 
-## Esta aplicação esta dividida entre:
+### Esta aplicação esta dividida entre:
 
 - emissor.py: o servidor que possui os arquivos
 - recepitor.py: o cliente que deseja receber um arquivo
@@ -19,11 +23,11 @@ O objetivo deste projeto e usar sockets UDP e a linguagem de programacao python 
 - /server: contem os arquivos no servidor
 - /client: contem os arquivos baixados pelo cliente
 
-## Requerimentos
+### Requerimentos
 
 Python 2.7 - (https://www.python.org/)
 
-## Uso
+### Uso
 
 Basta copiar os conteudos deste repositorio para uma pasta em seu computador
 
@@ -51,7 +55,7 @@ Os arquivos do emissor podem ser acessados dentro da pasta /server. Ja sao inclu
 
 Os arquivos baixados podem ser acessados dentro da pasta /client
 
-## Uso avançado
+### Uso avançado
 
 O modulo UDPI possui as seguintes configuracoes:
 * IP - ip do socket UDP
