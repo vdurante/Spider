@@ -310,7 +310,14 @@ class udpi:
     # metodo verify_checksum
     # verifica a validade dos dados recebidos
     def verify_checksum(self, data, checksum):
+        # bitwise AND do checksum recebido e a negacao do checksum calculado
+        result = checksum & ~ self.checksum(data)
 
+        # se for zero, dados nao esta corrompido
+        if result == 0:
+            return True
+        else:
+            return False
 
     # metodo make_pkt
     # cria um pacote para ser enviado
