@@ -27,6 +27,10 @@ class udpi:
         self.packet_size = int(packet_size)
         self.addr = ()
 
+        # limitar o tamanho do pacote
+        if self.packet_size > 1024:
+            self.packet_size = 1024
+
     # metodo bind
     # criar o socket UDP que sera usado para enviar ou receber dados
     # argumento addr - endereco do socket criado
@@ -52,6 +56,7 @@ class udpi:
     # argumento data - dado a ser enviado
     # addr - endereco de destino
     def sendto(self, data, addr):
+
         # reseta o socket
         self.reset()
 
